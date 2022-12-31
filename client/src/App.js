@@ -8,6 +8,17 @@ import Products from "./pages/Products/Products";
 import Product from "./pages/Product/Product";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import "./app.scss"
+
+const Layout = () => {
+    return (
+        <div className="app">
+            <Navbar />
+            <Outlet />
+            <Footer />
+        </div>
+    );
+};
 
 const router = createBrowserRouter([
     {
@@ -19,7 +30,7 @@ const router = createBrowserRouter([
                 element:<Home />
             },
             {
-                path:"/product/:id",
+                path:"/products/:id",
                 element:<Products/>
             },
             {
@@ -32,11 +43,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div>
-        <Navbar />
-        <Outlet />
-        <Footer />
-    </div>
+      <div>
+          <RouterProvider router={router} />
+      </div>
   );
 }
 
